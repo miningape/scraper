@@ -14,6 +14,6 @@ const Worker: Constructable<WorkerTemplate> = require(workerInfo.file).worker;
 const worker = new Worker();
 
 (async () =>{
-  const launchParams: FullLaunchOptions = { headless: false };
+  const launchParams: FullLaunchOptions = { headless: true };
   await worker.jobs( launchParams );
 })()

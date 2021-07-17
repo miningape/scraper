@@ -15,7 +15,7 @@ export class worker extends WorkerTemplate {
     const page = await browser.newPage();
     await page.goto('https://www.streetwearofficial.com/collections/supreme');
     
-    await page.waitForNavigation({ waitUntil: 'networkidle2'} );
+    //await page.waitForNavigation({ waitUntil: 'networkidle2'} );
     
     await page.waitForTimeout(3000)
     
