@@ -1,3 +1,5 @@
+import { FullLaunchOptions } from "./helper/launchOptions";
+
 export abstract class WorkerTemplate {
   abstract readonly name: string;
   abstract readonly baseURL: string;
@@ -5,7 +7,7 @@ export abstract class WorkerTemplate {
   constructor() {}
 
   abstract init(): Promise<any>;
-  abstract jobs(): Promise<any>;
+  abstract jobs(launchParams?: FullLaunchOptions): Promise<any>;
   abstract stop(): Promise<any>;
   
   log(message?: any): void {

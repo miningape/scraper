@@ -1,9 +1,10 @@
 export interface ManifestEntry {
   file: string;
-  message: string;
+  name: string;
+  details?: string;
 }
 
 export const manifest: Array<ManifestEntry> = [
-  { file: "./workers/nike", message: "nikeProcess" },
-  //{ file: "./integrations/supreme", name: "nikeProcess" },
+  { file: "./workers/nike", name: "Nike", details: "Nike Shoes Buyer" },
+  { file: "./workers/supreme", name: "Supreme", details: "Buying other shits" },
 ];

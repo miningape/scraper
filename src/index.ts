@@ -2,22 +2,10 @@ import { manifest, ManifestEntry } from "./manifest";
 import { Worker, isMainThread } from 'worker_threads';
 import { WorkerTemplate } from "./worker.template.js";
 
-interface Constructable<T> {
-  new(...args: any) : T;
-}
+console.log("Main Thread Started")
 
-if ( isMainThread ) {
-  console.log("Main Thread")
-  
-  manifest.forEach( (job: ManifestEntry) => {
-    new Worker('./build/index.js', { argv: [JSON.stringify(job)] })
-  } );
-} else {
-  const arg = process.argv[2];
-  
-  const workerInfo: ManifestEntry = JSON.parse(arg);
-  const Worker: Constructable<WorkerTemplate> = require(workerInfo.file).worker;
-  const worker = new Worker();
-  
-  worker.jobs();
-}
+// Spawn a bunch of workers
+manifest.forEach( (job: ManifestEntry) => {
+  console.log(`Spawning: ${job.name} - ${job.details}`);
+  new Worker('./build/worker.js', { argv: [JSON.stringify(job)] })
+} );
