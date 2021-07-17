@@ -1,0 +1,27 @@
+{
+  "name": "scraper",
+  "version": "1.0.0",
+  "description": "Money",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "echo \"Worker Starting\" && tsc && node build/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miningape/scraper.git"
+  },
+  "author": "Kyle & Daniel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miningape/scraper/issues"
+  },
+  "homepage": "https://github.com/miningape/scraper#readme",
+  "dependencies": {
+    "@types/node": "^16.3.2",
+    "puppeteer": "^10.1.0"
+  },
+  "devDependencies": {
+    "@types/puppeteer": "^5.4.4"
+  }
+}
