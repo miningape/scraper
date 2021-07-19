@@ -7,6 +7,8 @@ interface Constructable<T> {
   new(...args: any) : T;
 }
 
+console.log("forked")
+
 const arg = process.argv[2];
   
 const workerInfo: ManifestEntry = JSON.parse(arg);
@@ -14,6 +16,6 @@ const Worker: Constructable<WorkerTemplate> = require(workerInfo.file).worker;
 const worker = new Worker();
 
 (async () =>{
-  const launchParams: FullLaunchOptions = { headless: true };
+  const launchParams: FullLaunchOptions = { headless: false };
   await worker.jobs( launchParams );
 })()
